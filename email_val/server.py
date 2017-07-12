@@ -42,7 +42,7 @@ def create():
     else:
 
         query = "INSERT INTO emails (emails, created_at) VALUES (:emails, NOW())"
-    # We'll then create a dictionary of data from the POST data received.
+  
         data = {
              'emails': request.form['emails']
            }
