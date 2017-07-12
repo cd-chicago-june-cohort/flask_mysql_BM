@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='styles.css')}}">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+            <p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            </p>
+    </div>
+    <div>
+
+        <form action="/create" method="post">
+                <label for="emails">Email:<input type="text" name="emails" id="emails"></label>
+                <input type="submit" value="Add">
+        </form>
+    </div>
+    <div class="success pure-table">
+        <p>The email address you entered, {{ new_email }}, is a valid email address and has been inserted into our database.</p>
+        <h1>Email addresses entered:</h1>
+        <table id="email_table">
+            
+            <thead>
+                <th>Email</th>
+                <th>Created At</th>
+            </thead>
+                {% for entry in email_list %}
+            <tbody>
+            <tr class="success_emails">
+                <td>{{ entry["emails"] }}</td>
+                <td>{{ entry["created_at"] }}</td>
+            </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

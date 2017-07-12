@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name='viewport' content="width=device-width initial-scale=1.0">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+   <link rel="stylesheet" href="{{ url_for ('static', filename='styles.css')}}">
+
+   <title>TITLE</title>
+</head>
+<body>
+    <div class = "flash">
+            <p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            </p>
+    </div>
+    <div>
+
+        <form action="/create" method="post" id="create_form">
+                <label for="emails">Email:<input type="text" name="emails" id="emails"></label>
+                <input type="submit" value="Add">
+        </form>
+    </div>
+
+</body>
+</html>

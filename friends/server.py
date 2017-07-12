@@ -29,6 +29,15 @@ def create():
     return redirect('/')
 
 
+
+
+
+app.run(debug=True)
+
+
+
+
+
 # @app.route('/remove_friend/<friend_id>', methods=['POST'])
 # def delete(friend_id):
 #     query = "DELETE FROM friends WHERE id = :id"
@@ -62,5 +71,5 @@ def create():
 #     return render_template('index.html', one_friend=friends[0])
 
 
-app.run(debug=True)
+
 

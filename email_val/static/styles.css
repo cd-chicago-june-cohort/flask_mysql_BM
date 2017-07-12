@@ -1,0 +1,29 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+#email_table {
+    text-align: center;
+    width: 300px;
+    margin: auto;
+}
+
+.success {
+    margin: 20px;
+}
+
+#create_form {
+    margin: 20px;
+}
+
+.flash {
+    width: 300px;
+    margin: auto;
+
+}
+
+tr.success_emails {
+    border: 2px solid black;
+}
