@@ -1,0 +1,52 @@
+* {
+    font-size: 20px;
+}
+
+#new_message {
+    width: 100%;
+}
+
+.messages {
+    background-color: lightgray;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+
+#new_comment {
+    width: 90%;
+    font-size: 14px;
+}
+
+.comments {
+    width: 100%;
+    border: 1px solid black;
+    margin: 5px;
+    text-align: center;
+    background-color: lightcoral;
+}
+
+.comments p {
+    font-size: .7em;
+}
+
+/*.header {
+    border: 2px solid black;
+    line-height: 18px;
+}*/
+
+/*.header h1, input {
+    display: inline;
+}
+
+.header input {
+    text-align: right;
+    margin-left: 60%;
+    line-height: 18px;
+}*/
+
+/*.container {
+    background-image: url("/static/wall.jpg");
+    background-attachment: fixed;
+}*/
+

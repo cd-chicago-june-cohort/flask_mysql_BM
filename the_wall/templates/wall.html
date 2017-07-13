@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name='viewport' content="width=device-width initial-scale=1.0">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+   <link rel="stylesheet" href="{{ url_for ('static', filename='styles.css')}}">
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+   <script src="SCRIPT SOURCE"></script>
+   <title>The Wall</title>
+</head>
+<body>
+    <!--*****************************************************************-->
+    <div class="container-fluid">
+        <div class="header">
+            <form class="pure-form" action="/logout" method="post">The Dojo Wall
+            <input type="submit" value="LOG OUT">
+            </form>
+        </div>
+        <div class="posttop">
+            <h2>Post A Message</h2>
+        </div>
+        <form class="pure-form" action="/message" method="post">
+            <textarea name="new_message" id="new_message" rows="10"></textarea>
+            <input type="submit" value="Post">
+        </form>
+        <div class="wall_post">
+            {% for messages in results_list %}
+            <div class="messages">
+                <p><strong>{{ messages['first_name'] + " " + messages['last_name'] + " "}}</strong>{{messages['created_at'].strftime("%B %-d, %Y")}} wrote:</p>
+            
+                <hr>
+                <p>{{ messages['message'] }}</p>
+                        
+
+
+
+                <form class = "pure-form" action="/comment" method="post">
+                    <textarea name="new_comment" id="new_comment" rows="1"></textarea>
+                    <input type="hidden" name="messageID" value="{{messages['id']}}">
+                    <input type="submit" value="Comment">
+                </form>
+                                    {% for comments in comments_list %}
+                                        {% if comments['message_id'] == messages['id'] %}
+                                <div class="comments">
+                                    <p><strong>{{messages['first_name']}} {{messages['last_name']}}</strong> - {{comments['created_at'].strftime("%B %-d, %Y ")}} says:</p>
+                                    <p>{{ comments['comment']}}</p>
+                                </div>
+                                        {% endif %}
+                                    {% endfor %}
+
+            </div>
+                {% endfor %}
+            </div>
+    </div>
+</body>
+</html>
